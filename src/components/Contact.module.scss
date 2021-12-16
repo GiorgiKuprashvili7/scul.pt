@@ -1,0 +1,87 @@
+@use '../Styles/variables' as *;
+.section {
+  padding: 100px 0;
+  width: 100%;
+  background-color: $prymaryColor;
+  .content {
+    padding: $side-paddings;
+    margin: 0 auto;
+    max-width: $max-width;
+
+    .title {
+      color: $accentColor;
+      font-size: 45px;
+      font-family: $serif;
+      font-weight: 100;
+      letter-spacing: 1px;
+      line-height: 100%;
+      margin: 0;
+    }
+
+    form {
+      margin-top: 50px;
+      display: flex;
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+      input {
+        height: 40px;
+      }
+      textarea {
+        height: 86px;
+      }
+      input,
+      textarea {
+        color: $white;
+        background-color: $darkText;
+        border: none;
+        font-family: $sans-serif;
+        font-size: 15px;
+        margin: 3px;
+        padding: 5px;
+        resize: none;
+        outline: none;
+        &:hover,
+        &:focus {
+          background-color: lighten($darkText, 10%);
+        }
+      }
+      button {
+        border: 2px solid $accentColor;
+        margin: 3px;
+        height: 40px;
+        background-color: transparent;
+        color: $accentColor;
+        font-family: $sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        width: 150px;
+        height: 86px;
+        transition-duration: 100ms;
+        &:hover {
+          background-color: $accentColor;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section {
+    padding: 50px 0;
+  }
+  .section > .content > form {
+    flex-direction: column;
+    input,
+    textarea {
+      margin: 5px 0;
+    }
+    button {
+      align-self: flex-end;
+      height: 50px;
+      width: 150px;
+    }
+  }
+}

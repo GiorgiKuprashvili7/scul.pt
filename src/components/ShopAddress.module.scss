@@ -1,0 +1,79 @@
+@use '../Styles/variables' as *;
+
+.section {
+  width: 100%;
+  .content {
+    display: flex;
+    .map {
+      height: 400px;
+      width: 60%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .address {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      height: 400px;
+      position: relative;
+      .background_image {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        background-image: url('../images/hero-img.jpg');
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: bottom;
+      }
+      background-color: hsla(18, 80%, 70%, 0.92);
+      width: 40%;
+      .box {
+        color: $white;
+        padding: 10px 0;
+        font-family: $sans-serif;
+        div {
+          display: flex;
+          align-items: center;
+        }
+        div > .phone {
+          width: 20px;
+        }
+        div > .mail {
+          width: 18px;
+        }
+        div > .location {
+          width: 18px;
+        }
+        div > h2 {
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          padding-left: 10px;
+          margin: 0;
+          font-size: 16px;
+        }
+        p {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .section {
+    .content {
+      flex-direction: column-reverse;
+      .map {
+        width: 100%;
+      }
+      .address {
+        width: 100%;
+      }
+    }
+  }
+}

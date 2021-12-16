@@ -1,0 +1,162 @@
+@use '../Styles/variables' as *;
+
+.hero_section {
+  position: relative;
+  height: auto;
+  width: 100%;
+  .background {
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $prymaryColor;
+    background-image: url('../images/hero-img.jpg');
+    z-index: -1;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: hsla(0, 0%, 13%, 0.9);
+    }
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 900px;
+    height: 100vh;
+    max-width: $max-width;
+    padding: $side-paddings;
+    div {
+      p {
+        font-family: $sans-serif;
+        color: $gray;
+      }
+      h1 {
+        margin: 35px 0;
+        font-weight: 100;
+        letter-spacing: 4px;
+        font-size: 4rem;
+        color: $white;
+        font-family: $serif;
+        line-height: 140%;
+      }
+
+      button {
+        color: $accentColor;
+        font-size: 20px;
+        font-family: $sans-serif;
+        font-weight: 500;
+        height: 50px;
+        width: 170px;
+        background-color: transparent;
+        border: 2px solid $accentColor;
+        cursor: pointer;
+        transition-duration: 100ms;
+        &:hover {
+          background-color: $accentColor;
+          color: $white;
+        }
+      }
+    }
+    .image {
+      height: 320px;
+    }
+  }
+
+  .scrool_down {
+    width: 100%;
+    position: absolute;
+    height: 100px;
+
+    bottom: 20px;
+    display: grid;
+    place-items: center;
+    .border {
+      border-radius: 13px;
+      border: 2px solid $white;
+      height: 45px;
+      width: 26px;
+      display: flex;
+      justify-content: center;
+      .dot {
+        animation: move infinite 2s ease-out;
+        margin: 3px 0;
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
+        background-color: $white;
+      }
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    margin-top: 25px;
+  }
+  to {
+    margin-top: 5px;
+  }
+}
+
+// @media screen and (max-width: 1250px) {
+//   .hero_section {
+//     .scrool_down {
+//     }
+//   }
+// }
+
+@media screen and (max-width: 1180px) {
+  .hero_section {
+    .content {
+      padding-top: 100px;
+      padding-bottom: 200px;
+      align-items: flex-start;
+      height: auto;
+      flex-direction: column;
+      justify-content: start;
+
+      .image {
+        margin-top: 50px;
+        width: 100%;
+
+        object-fit: cover;
+        align-self: center;
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero_section {
+    .content {
+      padding-bottom: 0px;
+      div {
+        h1 {
+          font-size: 45px;
+        }
+      }
+    }
+    .scrool_down {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .hero_section {
+    .content {
+      div {
+        h1 {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}

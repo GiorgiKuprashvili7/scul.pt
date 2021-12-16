@@ -1,0 +1,110 @@
+@use '../Styles/variables' as *;
+
+.header {
+  transition-duration: 100ms;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+  height: 110px;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  .content {
+    margin: 0 auto;
+    padding: $side-paddings;
+    width: 100%;
+    height: 100%;
+    max-width: $max-width;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      letter-spacing: 1px;
+      font-size: 24px;
+      line-height: 20px;
+      font-family: $sans-serif;
+      font-weight: bolder;
+      color: $white;
+      &::before {
+        margin-right: 5px;
+        content: '';
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-color: $white;
+      }
+    }
+    nav {
+      ul {
+        display: flex;
+        list-style: none;
+        li {
+          margin-left: 35px;
+          a {
+            text-decoration: none;
+            color: $white;
+            font-family: $sans-serif;
+            font-weight: 500;
+            &:hover {
+              transition-duration: 100ms;
+              color: $accentColor;
+            }
+          }
+        }
+      }
+    }
+
+    .burger {
+      height: 30px;
+      width: 30px;
+      display: none;
+      position: absolute;
+      right: 20px;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .header {
+    height: 60px;
+    .content {
+      .nav {
+        transition-duration: 100ms;
+        transform: translate(100%);
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: hsla(0, 0%, 1%, 0.9);
+        backdrop-filter: blur(1px);
+        ul {
+          flex-direction: column;
+          top: 50px;
+          right: 20px;
+          position: absolute;
+          text-align: right;
+          li {
+            margin: 10px 0;
+            a {
+              font-size: 23px;
+            }
+          }
+        }
+      }
+      .nav_active {
+        transform: translate(0);
+      }
+      .burger {
+        display: block;
+      }
+    }
+  }
+}
+.header.active {
+  height: 60px;
+  background-color: darken($prymaryColor, 3%);
+}
